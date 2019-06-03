@@ -1,0 +1,76 @@
+﻿{
+  "name": "My Tasks-from-service.AAADEVVERBIO",
+  "categories":
+[
+  {
+        "name": "Verbio Voice Biometrics",
+        "mTypes": 
+         [
+            {
+                "name": "Verbio Verify",
+                "snapinVersion": "3.0",
+		"displayName": "Verbio Verify",
+                "tag": "VerbioVerifyBIO",
+                "svg": "voice-recognition",
+                "helpUrl": "hello.html",
+                "tile": "blue",
+                "serviceName": "CollabDesigner",
+                "custom": "true",
+                "nodeType": "activity",
+                "modelClass": "service.AAADEVVERBIO.Verify.VerifyModel",
+                "executionClass": "service.AAADEVVERBIO.Verify.VerifyExecution",
+		"mapping": "[\"input\", \"output\"]",
+                "properties": [
+                    {
+                        "name": "Url",
+                        "displayPropName": "Audio Url",
+                        "type": "String",
+                        "controlType": "text",
+                        "modelName": "setUrl",
+                        "mapping":"url"
+                    },
+                    {
+                        "name": "verbioUser",
+                        "displayPropName": "Verbio User Name",
+                        "type": "String",
+                        "controlType": "text",
+                        "modelName": "setVerbioUser",
+                        "mapping":"verbiouser"
+                    }
+                ],
+	        "input_schema": "{
+			        title: InputSchema,
+			        type: object,
+			        properties: {
+			            url: {
+			                type: string
+                        },
+                        verbiouser:{
+                            type: string
+                        }
+
+			        }
+	        }",
+                "output_schema": "{
+                        title: OutputSchema,
+                        type: object,
+                        properties: {
+                            error_message: {
+                                type: string
+                            },
+                            status: {
+                                type: string
+                            },
+                            resultFingerPrint: {
+                                type: string
+                            },
+                            scoreVerbio: {
+                                type: string
+                            }
+                        }
+                }"
+            }
+        ]
+  }
+]
+}
